@@ -12,55 +12,25 @@
     tools:context="org.shao.chong.image_beacon2.MainActivity">
 
     <Button
-        android:text="Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button2"
-        android:layout_alignLeft="@+id/button"
-        android:layout_alignStart="@+id/button"
-        android:layout_marginTop="15dp"
-        android:id="@+id/button3" />
-
-    <Button
-        android:text="Button"
+        android:text="Write into Beacon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
         android:layout_marginStart="24dp"
-        android:id="@+id/button5"
-        android:layout_alignBaseline="@+id/button2"
-        android:layout_alignBottom="@+id/button2"
-        android:layout_toRightOf="@+id/button2"
-        android:layout_toEndOf="@+id/button2" />
+        android:id="@+id/WriteButton"
+        android:layout_alignBaseline="@+id/rightTake"
+        android:layout_alignBottom="@+id/rightTake"
+        android:layout_toRightOf="@+id/rightTake"
+        android:layout_toEndOf="@+id/rightTake" />
 
     <Button
-        android:text="Button"
+        android:text="RTake"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button6"
-        android:layout_alignBaseline="@+id/button4"
-        android:layout_alignBottom="@+id/button4"
-        android:layout_alignLeft="@+id/button5"
-        android:layout_alignStart="@+id/button5" />
-
-    <Button
-        android:text="Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button2"
-        android:layout_alignBaseline="@+id/button"
-        android:layout_alignBottom="@+id/button"
+        android:id="@+id/rightTake"
+        android:layout_alignBaseline="@+id/leftTake"
+        android:layout_alignBottom="@+id/leftTake"
         android:layout_centerHorizontal="true" />
-
-    <Button
-        android:text="Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button4"
-        android:layout_alignBaseline="@+id/button3"
-        android:layout_alignBottom="@+id/button3"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignStart="@+id/button2" />
 
     <ImageView
         android:layout_width="100dp"
@@ -77,8 +47,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/seekBar"
         android:layout_alignTop="@+id/textView"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignStart="@+id/button2"
+        android:layout_alignLeft="@+id/rightTake"
+        android:layout_alignStart="@+id/rightTake"
         android:layout_alignBottom="@+id/textView" />
 
     <SeekBar
@@ -98,7 +68,7 @@
         android:id="@+id/seekBar3" />
 
     <TextView
-        android:text="TextView"
+        android:text="System lifetime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/seekBar"
@@ -107,12 +77,12 @@
         android:id="@+id/textView3" />
 
     <TextView
-        android:text="TextView"
+        android:text="Transmission time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button"
-        android:layout_alignLeft="@+id/button"
-        android:layout_alignStart="@+id/button"
+        android:layout_above="@+id/leftTake"
+        android:layout_alignLeft="@+id/leftTake"
+        android:layout_alignStart="@+id/leftTake"
         android:id="@+id/textView4" />
 
     <ImageView
@@ -150,23 +120,11 @@
         android:layout_above="@+id/seekBar"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        android:text="Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="86dp"
-        android:id="@+id/button"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/colorView"
-        android:layout_toStartOf="@+id/colorView"
-        android:layout_marginRight="13dp"
-        android:layout_marginEnd="13dp" />
-
     <TextView
-        android:text="TextView"
+        android:text="foo:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2"
+        android:id="@+id/messageView"
         android:layout_below="@+id/leftView"
         android:layout_alignLeft="@+id/leftView"
         android:layout_alignStart="@+id/leftView"
@@ -175,7 +133,7 @@
         android:layout_marginTop="14dp" />
 
     <TextView
-        android:text="TextView"
+        android:text="# of beacons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"
@@ -183,4 +141,16 @@
         android:layout_above="@+id/textView4"
         android:layout_alignLeft="@+id/greyView"
         android:layout_alignStart="@+id/greyView" />
+
+    <Button
+        android:text="LTake"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="29dp"
+        android:id="@+id/leftTake"
+        android:layout_marginRight="18dp"
+        android:layout_marginEnd="18dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/colorView"
+        android:layout_toStartOf="@+id/colorView" />
 </RelativeLayout>

@@ -1,10 +1,17 @@
 package org.shao.chong.image_beacon2;
 
 import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.PixelFormat;
+import android.graphics.PorterDuff;
 import android.hardware.Camera;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
 
 import java.io.IOException;
 
@@ -17,8 +24,16 @@ import static org.shao.chong.image_beacon2.MainActivity.TAG;
 public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
     private SurfaceHolder mHolder;
     private Camera mCamera;
+    private Canvas canvas;
+    private Paint paint;
+    float RectLeft;
+    float RectTop;
+    float RectRight;
+    float RectBottom;
 
-    public CameraPreview(Context context, Camera camera) {
+    private SurfaceView transparentView;
+    private SurfaceHolder holderTransparent;
+    public CameraPreview(Context context, Camera camera, SurfaceView transparentView) {
         super(context);
         mCamera = camera;
 
@@ -28,7 +43,37 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         mHolder.addCallback(this);
         // deprecated setting, but required on Android versions prior to 3.0
         mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+
+
+
+
+        holderTransparent = transparentView.getHolder();
+        holderTransparent.setFormat(PixelFormat.TRANSPARENT);
+        holderTransparent.addCallback(this);
+        holderTransparent.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+
+        OnTouchListener onTouchListner = new OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                RectLeft = event.getX() - 100;
+                RectTop = event.getY() - 100 ;
+                RectRight = event.getX() + 100;
+                RectBottom = event.getY() + 100;
+   //             DrawFocusRect(RectLeft , RectTop , RectRight , RectBottom , Color.BLUE);
+                return true;
+            }
+        };
+     //   DrawFocusRect(100, 100, 200, 200 , Color.BLUE);
+
     }
+
+    public SurfaceHolder getHolderTransparent() {
+        return holderTransparent;
+    }
+
+
+
 
     public void surfaceCreated(SurfaceHolder holder) {
         // The Surface has been created, now tell the camera where to draw the preview.

@@ -69,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
                Intent cameraIntent = new Intent(MainActivity.this, SquareCameraActivity.class);
             //    startActivityForResult(cameraIntent, CAMERA_REQUEST);
                 MainActivity.this.startActivity(cameraIntent);
-
             //    Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
            //     startActivityForResult(cameraIntent, CAMERA_REQUEST);
             }

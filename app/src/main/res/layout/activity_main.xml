@@ -26,10 +26,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/seekBar"
         android:layout_alignTop="@+id/textView"
-        android:layout_alignLeft="@+id/rightTake"
-        android:layout_alignStart="@+id/rightTake"
         android:layout_alignBottom="@+id/textView"
-        android:progress="10" />
+        android:progress="10"
+        android:layout_marginLeft="133dp" />
 
     <SeekBar
         android:layout_width="200dp"
@@ -98,14 +97,6 @@
         android:layout_marginStart="11dp"
         android:layout_marginTop="14dp" />
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:srcCompat="@mipmap/ic_launcher"
-        android:id="@+id/colorView"
-        android:layout_alignTop="@+id/greyView"
-        android:layout_alignEnd="@+id/rightTake" />
-
     <TextView
         android:text="# of beacons"
         android:layout_width="wrap_content"
@@ -139,9 +130,18 @@
         android:layout_marginLeft="24dp"
         android:id="@+id/WriteButton"
         android:layout_alignParentEnd="true"
-        android:layout_width="120dp"
         android:layout_height="50dp"
-        android:layout_marginTop="415dp" />
+        android:layout_marginTop="415dp"
+        android:layout_width="120dp"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@mipmap/ic_launcher"
+        android:id="@+id/colorView"
+        android:layout_alignTop="@+id/greyView"
+        android:layout_marginLeft="115dp" />
 
     <Button
         android:text="RTake"
@@ -150,5 +150,6 @@
         android:id="@+id/rightTake"
         android:layout_alignBaseline="@+id/leftTake"
         android:layout_alignBottom="@+id/leftTake"
-        android:layout_toEndOf="@+id/textView4" />
+        android:layout_toEndOf="@+id/greyView"
+        android:textSize="14sp" />
 </RelativeLayout>

@@ -19,6 +19,8 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Timer;
@@ -41,6 +43,8 @@ public class SquareCameraActivity extends Activity {
     private Paint paint;
     private SurfaceHolder holderTransparent;
 
+    TextView stateView;
+    int count;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,21 +106,32 @@ public class SquareCameraActivity extends Activity {
 //        holderTransparent.setFormat(PixelFormat.TRANSPARENT);
 //        holderTransparent.addCallback(callBack);
 //        holderTransparent.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+        stateView = (TextView) this.findViewById(R.id.textView2);
 
         final Handler handler = new Handler();
         final TextView textView = new TextView(this);
         Timer timer = new Timer();
+        count = 0;
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
+                        Log.d("DDL", DateFormat.getDateTimeInstance().toString());
                         String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
-                        textView.setGravity(Gravity.CENTER);
-                        textView.setTextSize(60);
-                        textView.setText(currentDateTimeString);
-                        setContentView(textView);
+                 //       textView.setGravity(Gravity.CENTER);
+                  //      textView.setTextSize(60);
+                 //       textView.setText(currentDateTimeString);
+                 //       setContentView(textView);
+                        count = count + 1;
+                        if (count > 3) {
+                            stateView.setText("Ready");
+                        }
+                        if (count > 4) {
+                            stateView.setText("Not Ready");
+                            count = 0;
+                        }
                     }
                 });
             }

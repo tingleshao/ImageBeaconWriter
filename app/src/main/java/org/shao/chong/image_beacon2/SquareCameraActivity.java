@@ -8,13 +8,21 @@ import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
 import android.hardware.Camera;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by chongshao on 6/23/17.
@@ -94,6 +102,25 @@ public class SquareCameraActivity extends Activity {
 //        holderTransparent.setFormat(PixelFormat.TRANSPARENT);
 //        holderTransparent.addCallback(callBack);
 //        holderTransparent.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+
+        final Handler handler = new Handler();
+        final TextView textView = new TextView(this);
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
+                        textView.setGravity(Gravity.CENTER);
+                        textView.setTextSize(60);
+                        textView.setText(currentDateTimeString);
+                        setContentView(textView);
+                    }
+                });
+            }
+        }, 1000, 1000);
     }
 
 

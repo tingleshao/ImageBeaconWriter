@@ -72,9 +72,6 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         return holderTransparent;
     }
 
-
-
-
     public void surfaceCreated(SurfaceHolder holder) {
         // The Surface has been created, now tell the camera where to draw the preview.
         try {
